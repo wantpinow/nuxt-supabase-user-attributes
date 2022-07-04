@@ -21,11 +21,11 @@ dist
 .output
 .vercel_build_output
 .build-*
-.env
+# .env
 .netlify
 
-# Env
-.env
+# Env 
+# .env
 
 # Testing
 reports
