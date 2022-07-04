@@ -8,7 +8,7 @@ Persistent user attributes with Supabase and Nuxt.
 
 ## Introduction
 
-This module extends the `@nuxtjs/supabase` module to allow for user attribute tables (such as profiles and metadata) to be used in a Nuxt3 application with a similar interface to [useSupabaseUser](https://supabase.nuxtjs.org/usage/composables#usesupabaseuser) via a single composable:
+This module extends the `@nuxtjs/supabase` module to allow for user attribute tables (such as profiles and metadata) to be used in a Nuxt3 application with a similar interface to [useSupabaseUser()](https://supabase.nuxtjs.org/usage/composables#usesupabaseuser) via a single composable:
 
 ```javascript
 <script setup>
