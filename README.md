@@ -1,8 +1,8 @@
 # nuxt-supabase-user-attributes
 
-<!-- [![Npm package version](https://badgen.net/npm/v/nuxt-editorjs)](https://npmjs.com/package/nuxt-editorjs)
-[![Npm package total downloads](https://badgen.net/npm/dt/nuxt-editorjs)](https://npmjs.com/package/nuxt-editorjs)
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/) -->
+[![Npm package version](https://badgen.net/npm/v/nuxt-editorjs)](https://npmjs.com/package/nuxt-supabase-user-attributes)
+[![Npm package total downloads](https://badgen.net/npm/dt/nuxt-editorjs)](https://npmjs.com/package/nuxt-supabase-user-attributes)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
 Persistent user attributes with Supabase and Nuxt.
 
