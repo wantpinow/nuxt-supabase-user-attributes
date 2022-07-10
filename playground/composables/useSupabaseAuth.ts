@@ -1,3 +1,8 @@
+import {
+  // @ts-ignore
+  useSupabaseClient,
+} from "#imports";
+
 const useSupabaseAuth = () => {
   const register = async (email, password, redirect = null) => {
     const supabase = useSupabaseClient();

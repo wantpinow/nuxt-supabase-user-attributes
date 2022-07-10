@@ -1,12 +1,22 @@
 import { defineNuxtConfig } from "nuxt";
-import SupabaseUserAttributes from "..";
+import supabaseUserAttributes from "..";
 
 export default defineNuxtConfig({
-  modules: [SupabaseUserAttributes, "@nuxtjs/supabase"],
+  modules: [supabaseUserAttributes, "@nuxtjs/supabase"],
   supabaseUserAttributes: {
-    tables: {
-      user_metadata: "metadata",
-      profiles: "profile",
-    },
+    tables: [
+      {
+        name: "profiles",
+        alias: "profile",
+        user_id_column: "id",
+        multiple: false,
+      },
+      {
+        name: "user_metadata",
+        alias: "metadata",
+        user_id_column: "id",
+        multiple: false,
+      },
+    ],
   },
 });

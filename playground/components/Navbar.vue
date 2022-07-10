@@ -11,5 +11,5 @@
 const user = useSupabaseUser();
 const { logout } = useSupabaseAuth();
 
-const { metadata, profile } = useSupabaseUserAttributes();
+const { profile, metadata } = useSupabaseUserAttributes();
 </script>

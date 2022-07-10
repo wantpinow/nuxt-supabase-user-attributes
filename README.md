@@ -12,16 +12,14 @@ This module extends the `@nuxtjs/supabase` module to allow for user attribute ta
 
 ```javascript
 <script setup>
-  const {metadata, profile} = useSupabaseUserAttributes() // example usage: a metadata table with roles 
-  if(metadata.role != "admin") {
-    navigateTo("/")
-  }
+  const {(metadata, profile)} = useSupabaseUserAttributes(); if(metadata.role !=
+  "admin") {navigateTo("/")}
 </script>
 ```
 
 ## Setup and Installation
 
-This module requires a Supabase database with one or more user attribute tables. Each of these tables must include a primary key named `id` which references the `auth.users.id` column. See `/supabase/migrations/0_users_profiles.sql` for an example of two such user attribute tables, complete with Postgres triggers and row level security policies. Once the database has been set up (and started if running locally), add a `SUPABASE_URL` and `SUPABASE_KEY` to a `.env` file. Next, follow the steps below:
+This module requires a Supabase DB with one or more user attribute tables. Each of these tables must have a column referencing `auth.users.id`. See `/supabase/migrations/0_users_profiles.sql` for an example of two such user attribute tables, complete with Postgres triggers and row level security policies. Once the database has been set up (and started if running locally), add a `SUPABASE_URL` and `SUPABASE_KEY` to a `.env` file. Next, follow the steps below:
 
 - Install the Supabase module: `yarn add @nuxtjs/supabase`
 - Install the use attributes module: `yarn add nuxt-supabase-user-attributes`
@@ -32,22 +30,38 @@ export default defineNuxtConfig({
   ...
   modules: ["nuxt-supabase-user-attributes", "@nuxtjs/supabase"],
   supabaseUserAttributes: {
-    tables: {
-      table_name: "table_alias",
-      ...
-    },
+    tables: [
+      {
+        name: "user_metadata",
+        alias: "metadata",
+        user_id_column: "id",
+        multiple: false,
+      }
+    ]
   },
   ...
 });
 ```
 
-Here, `supabaseUserAttributes.tables` defines a set of table names and aliases. The table names must match the user attribute table names, whereas the table aliases are human-readable keys that are accessible via `useSupabaseUserAttributes()`. For example, we may define a `user_metadata` table to store private and immutable information about a user such as their role. The following configuration:
+`supabaseUserAttributes.tables` defines an array tables with the following variables:
+
+- **name**: The name of the user attribute table. (required)
+- **alias**: An alias used to reference the attribute. (optional: defaults to the table name)
+- **user_id_column**: The column of the user attribute table which references `auth.users.id`. (optional: defaults to 'id')
+- **multiple**: Whether to return the user attributes as an array or single element. (optional: defaults to false)
+
+For example, the following configuration:
 
 ```javascript
 supabaseUserAttributes: {
-  tables: {
-    user_metadata: "metadata";
-  }
+  tables: [
+    {
+      name: "user_metadata",
+      alias: "metadata",
+      user_id_column: "id",
+      multiple: false,
+    },
+  ];
 }
 ```
 
