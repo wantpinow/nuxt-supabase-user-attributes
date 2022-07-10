@@ -12,8 +12,8 @@ This module extends the `@nuxtjs/supabase` module to allow for user attribute ta
 
 ```javascript
 <script setup>
-  const {(metadata, profile)} = useSupabaseUserAttributes(); if(metadata.role !=
-  "admin") {navigateTo("/")}
+  const {metadata, profile} = useSupabaseUserAttributes(); 
+  if(metadata.role != "admin") {navigateTo("/")}
 </script>
 ```
 
