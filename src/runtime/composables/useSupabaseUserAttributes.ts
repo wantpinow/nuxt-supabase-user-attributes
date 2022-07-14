@@ -1,4 +1,10 @@
 import { useRuntimeConfig, useState } from "#app";
+import {
+  // @ts-ignore
+  useSupabaseClient,
+  // @ts-ignore
+  useSupabaseUser,
+} from "#imports";
 
 export const useSupabaseUserAttributes = (): any => {
   const config = useRuntimeConfig();
